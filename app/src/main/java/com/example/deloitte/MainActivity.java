@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public  static String DATA_KEY = "lugTag";
+    public static String TAG = MainActivity.class.getSimpleName();
     int a; //declaration
     Student deloiteStudent; //declaration
     EditText nameEditText; //declaration
@@ -26,7 +28,39 @@ public class MainActivity extends AppCompatActivity {
         mainTextView = findViewById(R.id.tvMain);
         deloiteStudent = new Student(); //instantiation
         deloiteStudent.setName("yatish");
+        Log.i(TAG,"onCreate");
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG,"onStart");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG,"onPause");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.w(TAG,"onResume");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.v(TAG,"onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG,"onDestroy");
     }
 
     public void clickHandler(View view) {
