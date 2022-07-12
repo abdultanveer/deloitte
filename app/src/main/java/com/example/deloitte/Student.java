@@ -8,6 +8,14 @@ public class Student {
     int phno;
     String address;
 
+    public Student(){}
+    public Student(int rollno, String name, int phno, String address) {
+        this.rollno = rollno;
+        this.name = name;
+        this.phno = phno;
+        this.address = address;
+    }
+
     int calculateStipend(){ return 100;}
 
     public int getRollno() {

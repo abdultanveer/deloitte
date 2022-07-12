@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    public  static String DATA_KEY = "lugTag";
     int a; //declaration
     Student deloiteStudent; //declaration
     EditText nameEditText; //declaration
@@ -33,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         //set the text into the textview
         mainTextView.setText(name);
         // Toast.makeText(this, "logging in", Toast.LENGTH_SHORT).show();
-        /*Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
-        startActivity(hIntent);*/
+        Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
+        hIntent.putExtra(DATA_KEY,name); //key-value pair --- Map
+        startActivity(hIntent);
     }
 
     void drawRectangle(int length, int breadth){}
