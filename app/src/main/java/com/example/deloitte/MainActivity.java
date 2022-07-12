@@ -3,6 +3,7 @@ package com.example.deloitte;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -29,15 +30,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickHandler(View view) {
+        switch (view.getId()){
+            case R.id.btnLogin:
+                startHome();
+                break;
+            case R.id.btnCancel:
+                startDialer();
+                break;
+        }
+
+    }
+
+    private void startDialer() {
+        Intent dIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:98765432")); //implicit intent
+        startActivity(dIntent);
+    }
+
+    private void startHome() {
         //get the text from edittext
         String name = nameEditText.getText().toString();
         //set the text into the textview
         mainTextView.setText(name);
         // Toast.makeText(this, "logging in", Toast.LENGTH_SHORT).show();
-        Intent hIntent = new Intent(MainActivity.this,HomeActivity.class);
+        Intent hIntent = new Intent(MainActivity.this,HomeActivity.class); //explicit intent
         hIntent.putExtra(DATA_KEY,name); //key-value pair --- Map
         startActivity(hIntent);
     }
+
 
     void drawRectangle(int length, int breadth){}
 
