@@ -1,5 +1,6 @@
 package com.example.deloitte;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     public  static String DATA_KEY = "lugTag";
     public static String TAG = MainActivity.class.getSimpleName();
     int a; //declaration
-    Student deloiteStudent; //declaration
+    Student deloiteStudent; //declaration --ref on stack memory
     EditText nameEditText; //declaration
     TextView mainTextView;
     @Override
@@ -26,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); //inflating --layout inflater
         nameEditText = findViewById(R.id.etName); //initialization -- taking handle
         mainTextView = findViewById(R.id.tvMain);
-        deloiteStudent = new Student(); //instantiation
+
+        deloiteStudent = new Student(); //instantiation -- heap memory
         deloiteStudent.setName("yatish");
+
         Log.i(TAG,"onCreate");
 
     }
@@ -87,10 +90,18 @@ public class MainActivity extends AppCompatActivity {
         mainTextView.setText(name);
         // Toast.makeText(this, "logging in", Toast.LENGTH_SHORT).show();
         Intent hIntent = new Intent(MainActivity.this,HomeActivity.class); //explicit intent
-        hIntent.putExtra(DATA_KEY,name); //key-value pair --- Map
-        startActivity(hIntent);
+       // hIntent.putExtra(DATA_KEY,name); //key-value pair --- Map
+        startActivityForResult(hIntent,123);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 123 && resultCode == RESULT_OK){
+            String contact = data.getExtras().getString("ckey");
+            mainTextView.setText(contact);
+        }
+    }
 
     void drawRectangle(int length, int breadth){}
 

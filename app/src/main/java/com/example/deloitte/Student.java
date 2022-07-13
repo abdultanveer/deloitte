@@ -2,6 +2,7 @@ package com.example.deloitte;
 
 //user defined datatypes
 public class Student {
+    public static String COLLEGE_NAME = "IIT"; //class memory
 
     int rollno;
     String name;
@@ -16,7 +17,7 @@ public class Student {
         this.address = address;
     }
 
-    int calculateStipend(){ return 100;}
+    static int calculateStipend(){ return 100;}
 
     public int getRollno() {
         return rollno;
