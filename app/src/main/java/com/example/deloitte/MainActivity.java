@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
     private void startHome() {
         //get the text from edittext
         String name = nameEditText.getText().toString();
+        int d = add(10,20);
         //set the text into the textview
         mainTextView.setText(name);
         // Toast.makeText(this, "logging in", Toast.LENGTH_SHORT).show();
