@@ -91,7 +91,10 @@ public class MainActivity extends AppCompatActivity {
         // Toast.makeText(this, "logging in", Toast.LENGTH_SHORT).show();
         Intent hIntent = new Intent(MainActivity.this,HomeActivity.class); //explicit intent
        // hIntent.putExtra(DATA_KEY,name); //key-value pair --- Map
-        startActivityForResult(hIntent,123);
+
+        //startActivityForResult(hIntent,123);
+        throw new NullPointerException("couldn't start home activity");
+
     }
 
     @Override
