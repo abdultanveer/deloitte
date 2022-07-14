@@ -1,6 +1,7 @@
 package com.example.deloitte;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -13,5 +14,8 @@ String[] languages = new String[]{"english","hindi","urdu","tamil","telgu","maly
         setContentView(R.layout.activity_recycler);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LanguageAdapter adapter = new LanguageAdapter(languages);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
     }
 }
