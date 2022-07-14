@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class LanguageAdapter  extends RecyclerView.Adapter<LanguageAdapter.LangViewHolder> {
     public static String TAG = LanguageAdapter.class.getSimpleName();
+    String[] languages;
+    public LanguageAdapter(String[] languages) {
+        this.languages = languages;
+    }
 
     @NonNull
     @Override
@@ -24,13 +28,13 @@ public class LanguageAdapter  extends RecyclerView.Adapter<LanguageAdapter.LangV
     @Override
     public void onBindViewHolder(@NonNull LangViewHolder holderKshitij, int position) {
         Log.i(TAG, "akshita is writing the dish name on the row plank");
-        holderKshitij.rowTextView.setText("language");
+        holderKshitij.rowTextView.setText(languages[position]);
     }
 
     @Override
     public int getItemCount() {
         Log.i(TAG, "sharnali is counting the no of data items");
-        return 0;
+        return languages.length;
     }
 
     public class LangViewHolder extends RecyclerView.ViewHolder {

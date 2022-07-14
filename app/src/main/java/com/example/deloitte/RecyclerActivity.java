@@ -12,5 +12,6 @@ String[] languages = new String[]{"english","hindi","urdu","tamil","telgu","maly
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        LanguageAdapter adapter = new LanguageAdapter(languages);
     }
 }
