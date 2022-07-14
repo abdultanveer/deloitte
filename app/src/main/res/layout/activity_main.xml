@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:background="@android:color/holo_orange_dark"
+    android:background="@android:color/holo_orange_dark"
     tools:context=".MainActivity">
 
     <EditText
@@ -47,11 +47,11 @@
 
     <Button
         android:id="@+id/btnCancel"
-        android:onClick="clickHandler"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
         android:layout_marginTop="40dp"
+        android:onClick="clickHandler"
         android:text="cancel"
         app:layout_constraintStart_toEndOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
@@ -65,4 +65,15 @@
         android:text="@string/student_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

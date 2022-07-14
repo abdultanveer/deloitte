@@ -3,6 +3,7 @@ package com.example.deloitte;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnFocusChangeListener {
     public  static String DATA_KEY = "lugTag";
     public static String TAG = MainActivity.class.getSimpleName();
     int a; //declaration
@@ -21,13 +22,14 @@ public class MainActivity extends AppCompatActivity {
     TextView mainTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState); //retaining the old defination
 
           a = 5; //initialization
         setContentView(R.layout.activity_main); //inflating --layout inflater
         nameEditText = findViewById(R.id.etName); //initialization -- taking handle
         mainTextView = findViewById(R.id.tvMain);
 
+        nameEditText.setOnFocusChangeListener(this);
         deloiteStudent = new Student(); //instantiation -- heap memory
         deloiteStudent.setName("yatish");
 
@@ -111,5 +113,16 @@ public class MainActivity extends AppCompatActivity {
 
     int add(int fno, int sno){
         return fno+sno;
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean isFocussed) {
+        if(isFocussed){
+            Toast.makeText(this, "focussed", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "lost focus", Toast.LENGTH_SHORT).show();
+
+        }
     }
 }
