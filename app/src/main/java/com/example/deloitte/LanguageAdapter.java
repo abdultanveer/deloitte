@@ -42,7 +42,7 @@ public class LanguageAdapter  extends RecyclerView.Adapter<LanguageAdapter.LangV
         public LangViewHolder(@NonNull View rowViewYatish) {
             super(rowViewYatish);
             Log.i(TAG, "kshitij is putting the plank in viewholder box");
-            rowViewYatish = rowViewYatish.findViewById(R.id.tvRowPlank);
+            rowTextView = rowViewYatish.findViewById(R.id.tvRowPlank);
         }
     }
 }
