@@ -1,6 +1,7 @@
 package com.example.deloitte;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ *
+ */
 public class RecyclerActivity extends AppCompatActivity {
 String[] languages = new String[]{"english","hindi","urdu","tamil","telgu","malyalam","marathi"
 ,"english","hindi","urdu","tamil","telgu","malyalam","marathi"
@@ -31,7 +35,7 @@ String[] languages = new String[]{"english","hindi","urdu","tamil","telgu","maly
         recyclerView.setAdapter(adapter);
         Button contextButton = findViewById(R.id.btnContext);
         registerForContextMenu(contextButton);
-
+        multiply(10,20);
     }
 
     @Override
@@ -82,5 +86,25 @@ String[] languages = new String[]{"english","hindi","urdu","tamil","telgu","maly
                 break;
         }
         return true;
+    }
+
+    /**
+     * this method multiplies
+     * @param a -- first param
+     * @param b --second integer
+     * @return result of multiplication
+     */
+    public int multiply(int a, int b){
+        return a*b;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("do you want to quit")
+                .setPositiveButton("ok",null)
+                .setNegativeButton("cancel",null);
+        builder.show();
     }
 }

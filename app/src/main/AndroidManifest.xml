@@ -21,10 +21,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!--<intent-filter>
+                <action android:name="tomcruise.isin.your.BUILDING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
