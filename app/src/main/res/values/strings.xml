@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">deloitte</string>
     <string name="student_name">yatish</string>
+    <string name="enter_contact">enter contact details</string>
+    <string name="finish">finish and close</string>
 
 </resources>

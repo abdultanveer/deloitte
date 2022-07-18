@@ -13,7 +13,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="53dp"
         android:ems="10"
-        android:hint="enter contact"
+        android:hint="@string/enter_contact"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="151dp"
         android:onClick="resultHandler"
-        android:text="finish"
+        android:text="@string/finish"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -5,6 +5,10 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="red" parent="mytextstyle">
+        <item name="android:textColor">@android:color/holo_red_light</item>
+    </style>
 </resources>
 
   <!--  android:textColor="@android:color/holo_orange_dark"

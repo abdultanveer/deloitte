@@ -29,13 +29,13 @@ String[] languages = new String[]{"english","hindi","urdu","tamil","telgu","maly
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler);
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+      /*  RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LanguageAdapter adapter = new LanguageAdapter(languages);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         Button contextButton = findViewById(R.id.btnContext);
         registerForContextMenu(contextButton);
-        multiply(10,20);
+        multiply(10,20);*/
     }
 
     @Override

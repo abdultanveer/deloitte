@@ -16,11 +16,7 @@
         <activity
             android:name=".RecyclerActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <!--<intent-filter>
                 <action android:name="tomcruise.isin.your.BUILDING"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -29,7 +25,11 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
