@@ -34,13 +34,14 @@ class HomeActivity : AppCompatActivity() {
         //send the result[contact] back to the parent activity[MainActivity]
             //get the data from the edittext
         var contact : String = etHome.text.toString()
+        homeTextView.text = contact
             //put the data into an intent
-        var mIntent  = Intent()
+       /* var mIntent  = Intent()
         mIntent.putExtra("ckey",contact)
             //set the result
         setResult(RESULT_OK,mIntent)
             //finish this current activity
-        finish()
+        finish()*/
 
     }
 }
