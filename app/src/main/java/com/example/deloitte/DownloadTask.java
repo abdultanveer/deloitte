@@ -3,6 +3,7 @@ package com.example.deloitte;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 //what are generic classes -- input type, progresstype,result type
 
@@ -16,6 +17,7 @@ public static String TAG = DownloadTask.class.getSimpleName();
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override //this method will execute on a seperate background thread
@@ -41,5 +43,6 @@ public static String TAG = DownloadTask.class.getSimpleName();
     @Override
     protected void onPostExecute(Bitmap bitmap) {
         super.onPostExecute(bitmap);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 }
