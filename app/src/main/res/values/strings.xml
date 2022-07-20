@@ -3,5 +3,7 @@
     <string name="student_name">yatish</string>
     <string name="enter_contact">enter contact details</string>
     <string name="finish">finish and close</string>
-
+    <string name="instructions">Enter a book name to find out who wrote the book. </string>
+    <string name="button_text">Search Books</string>
+    <string name="input_hint">Book Title</string>
 </resources>
