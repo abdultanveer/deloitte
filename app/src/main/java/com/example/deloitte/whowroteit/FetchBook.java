@@ -3,6 +3,8 @@ package com.example.deloitte.whowroteit;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
+import com.example.deloitte.Utility;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +30,7 @@ public class FetchBook extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String jsonString) {
         super.onPostExecute(jsonString);
         try {
-            JSONObject jsonObject = new JSONObject(jsonString);
+            JSONObject jsonObject = new JSONObject(Utility.jsonString);
             JSONArray itemsArray = jsonObject.getJSONArray("items");
 
             int i = 0;

@@ -4,6 +4,8 @@ package com.example.deloitte.whowroteit;
 import android.net.Uri;
 import android.util.Log;
 
+import com.example.deloitte.Utility;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +38,7 @@ public class NetworkUtils {
     static String getBookInfo(String queryString){
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
-        String bookJSONString = null;
+        String bookJSONString = Utility.jsonString;
 
 
 
@@ -49,7 +51,10 @@ public class NetworkUtils {
                     .build();
             Log.i(LOG_TAG,"the url---"+builtURI.toString());
 
-            URL requestURL = new URL(builtURI.toString());
+           // URL requestURL = new URL(builtURI.toString());
+            URL requestURL = new URL("https://my-json-server.typicode.com/abdultanveer/deloittejava");
+                    //"https://github.com/abdultanveer/deloittejava/blob/master/Deloittejava/db.json");
+           // URL newsUrl = new URL("https://newsapi.org/v2/everything?q=tesla&from=2022-06-20&sortBy=publishedAt&apiKey=API_KEY\n");
             //-------------------REQUEST----------------
             urlConnection = (HttpURLConnection) requestURL.openConnection();
             urlConnection.setRequestMethod("GET");

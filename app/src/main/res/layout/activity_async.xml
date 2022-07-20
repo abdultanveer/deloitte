@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/instructions"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/instructions"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
@@ -21,7 +21,7 @@
 
     <EditText
         android:id="@+id/bookInput"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/input_hint"
@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/titleText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -52,7 +52,7 @@
 
     <TextView
         android:id="@+id/authorText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
