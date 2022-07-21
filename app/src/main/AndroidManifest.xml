@@ -4,7 +4,8 @@
     package="com.example.deloitte">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+            <!--runtime permissions-->
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Deloitte"
         tools:targetApi="31">
+        <receiver
+            android:name=".SmsReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name=".AsyncActivity"
             android:exported="true">
@@ -46,7 +56,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
