@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     public static String TAG = MainActivity.class.getSimpleName();
     int a; //declaration
     Student deloiteStudent; //declaration --ref on stack memory
-    EditText nameEditText; //declaration
+    EditText nameEditText,etPassword; //declaration
     TextView mainTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
         setContentView(R.layout.activity_main); //inflating --layout inflater
         nameEditText = findViewById(R.id.etName); //initialization -- taking handle
         mainTextView = findViewById(R.id.tvMain);
+        etPassword = findViewById(R.id.etPassword);
 
         nameEditText.setOnFocusChangeListener(this);
         deloiteStudent = new Student(); //instantiation -- heap memory
@@ -47,13 +49,41 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
     protected void onPause() {
         super.onPause();
         Log.e(TAG,"onPause");
+        storeData();
 
+    }
+
+    private void storeData() {
+        //get the data from edittext
+        String name = nameEditText.getText().toString();
+        String pass = etPassword.getText().toString();
+        //create teh file
+        SharedPreferences preferences = getSharedPreferences("deloitte_prefs",MODE_PRIVATE);
+        //open the file in edit mode
+        SharedPreferences.Editor editor = preferences.edit();
+        //write to the file
+        editor.putString("namekey",name);
+        editor.putString("passkey",pass);
+        //save the file
+        editor.apply();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         Log.w(TAG,"onResume");
+        restoreData();
+    }
+
+    private void restoreData() {
+        //get the file
+        SharedPreferences preferences = getSharedPreferences("deloitte_prefs",MODE_PRIVATE);
+        //read from the file
+        String name = preferences.getString("namekey","");
+        String password = preferences.getString("passkey","");
+        //put the data back into edittexts
+        nameEditText.setText(name);
+        etPassword.setText(password);
     }
 
     @Override
@@ -124,5 +154,10 @@ public class MainActivity extends AppCompatActivity implements View.OnFocusChang
             Toast.makeText(this, "lost focus", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+    public void implicitHandler(View view) {
+        Intent cIntent = new Intent("yatish.khsitij.sharnali.akshita");//somebody ill
+        startActivity(cIntent);
     }
 }
