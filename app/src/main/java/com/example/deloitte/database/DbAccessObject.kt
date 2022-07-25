@@ -41,6 +41,9 @@ class DbAccessObject(var context: Context) {
 
         return title + "\n"+ subtitle
     }
-    fun getAllRows(){}
+    fun getAllRows(): Cursor {
+        var cursor: Cursor =  database.query(FeedEntry.TABLE_NAME,null,null,null,null,null,null,)
+        return cursor
+    }
     fun deleteRow(){}
 }
