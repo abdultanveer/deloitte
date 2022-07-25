@@ -20,6 +20,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context,"deloite_db",null,1)
 
     //oncreate wiil be called when the db is getting created for the 1st time
     override fun onCreate(database: SQLiteDatabase?) {
+        database?.execSQL(SQL_CREATE_ENTRIES)
 
     }
 

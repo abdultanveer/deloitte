@@ -14,6 +14,8 @@ class TodoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
+        etTitle = findViewById(R.id.etTitle)
+        etSubtitle = findViewById(R.id.etSubtitle)
         dbAccessObject = DbAccessObject(this)
         dbAccessObject.openDb()
     }
@@ -34,6 +36,7 @@ class TodoActivity : AppCompatActivity() {
         var title = etTitle.text.toString()
         var subTitle = etSubtitle.text.toString()
         var note = Note(title, subTitle);
+        dbAccessObject.createRow(note)
 
     }
 }
