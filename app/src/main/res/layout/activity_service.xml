@@ -8,24 +8,36 @@
 
     <Button
         android:id="@+id/btnStart"
-        android:onClick="serviceHandler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="67dp"
+        android:onClick="serviceHandler"
         android:text="start service"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnStop"
-        android:onClick="serviceHandler"
-
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="5dp"
+        android:onClick="serviceHandler"
         android:text="stop service"
         app:layout_constraintStart_toEndOf="@+id/btnStart"
         app:layout_constraintTop_toTopOf="@+id/btnStart" />
+
+    <Button
+        android:id="@+id/btnBind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="178dp"
+        android:text="bind"
+        android:onClick="serviceHandler"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
