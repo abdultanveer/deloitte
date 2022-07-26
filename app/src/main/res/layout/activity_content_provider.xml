@@ -9,13 +9,43 @@
     <ListView
         android:id="@+id/cpListview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="300dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="61dp"
+        android:text="send firestore"
+        android:onClick="firestoreHandler"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cpListview" />
+
+    <Button
+        android:id="@+id/btnFsGet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:text="get firestore"
+        android:onClick="firestoreHandler"
+
+        app:layout_constraintStart_toEndOf="@+id/btnSend"
+        app:layout_constraintTop_toTopOf="@+id/btnSend" />
+
+    <TextView
+        android:id="@+id/tvFsResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="57dp"
+        android:text="display data from firestore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFsGet" />
 </androidx.constraintlayout.widget.ConstraintLayout>
