@@ -33,6 +33,7 @@ class DbAccessObject(var context: Context) {
        var cursor: Cursor =  database.query(FeedEntry.TABLE_NAME,null,null,null,null,null,null,)
         //cursor is pointing to the result set
         cursor.moveToLast()
+       // cursor.moveToPosition()
         var titleIndex = cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_TITLE)
         var title = cursor.getString(titleIndex)
 

@@ -17,6 +17,15 @@
         android:theme="@style/Theme.Deloitte"
         tools:targetApi="31">
         <activity
+            android:name=".roomdb.RoomActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".TodoActivity"
             android:exported="true">
             <intent-filter>
@@ -37,7 +46,7 @@
 
         <activity
             android:name=".AsyncActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".RecyclerActivity"
             android:exported="true">
@@ -51,12 +60,10 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
