@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.deloitte.R;
 
 public class RoomActivity extends AppCompatActivity {
     EditText name, email, pincode, city, phoneNumber;
     Button button;
+    TextView dbTv;
     int mPersonId;
     Intent intent;
     private AppDatabase mDb;
@@ -26,6 +28,7 @@ public class RoomActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        dbTv = findViewById(R.id.tvDb);
         name = findViewById(R.id.edit_name);
         email = findViewById(R.id.edit_email);
         pincode = findViewById(R.id.edit_pincode);
@@ -57,4 +60,21 @@ public class RoomActivity extends AppCompatActivity {
         });
     }
 
+    public void getDbData(View view) {
+        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+               Person person = mDb.personDao().loadPersonById(1);
+               runOnUiThread(new Runnable() {
+                   @Override
+                   public void run() {
+                       dbTv.setText(person.getName()+"\n"+person.getEmail());
+                   }
+               });
+            }
+        }
+
+
+        );
+    }
 }
