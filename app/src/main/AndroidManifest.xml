@@ -17,14 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Deloitte"
         tools:targetApi="31">
-        <provider
-            android:name=".contentproviders.TodoContentProvider"
-            android:authorities="entry.todo"
-            android:enabled="true"
-            android:exported="true"></provider>
-
         <activity
-            android:name=".contentproviders.ContentProviderActivity"
+            android:name=".fragments.FragmentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,12 +26,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".contentproviders.TodoContentProvider"
+            android:authorities="entry.todo"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".contentproviders.ContentProviderActivity"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".roomdb.RoomActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".TodoActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <receiver
             android:name=".SmsReceiver"
