@@ -8,7 +8,8 @@
     tools:context=".fragments.FragmentActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/headlinesFrag"
+
         android:name="com.example.deloitte.fragments.HeadlinesFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -17,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView2"
+        android:id="@+id/newsFrag"
         android:layout_weight="2"
         android:name="com.example.deloitte.fragments.NewsFragment"
         android:layout_width="0dp"

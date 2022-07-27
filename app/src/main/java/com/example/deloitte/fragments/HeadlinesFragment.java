@@ -16,6 +16,18 @@ import com.example.deloitte.R;
 
 public class HeadlinesFragment extends Fragment implements AdapterView.OnItemClickListener {
     ListView headlinesListView;
+    OnHeadlinesSelectedListener onHeadlinesSelectedListener;
+
+    interface OnHeadlinesSelectedListener{  //switchboard
+        public void onHeadlineSelected(String headline,int position);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        onHeadlinesSelectedListener = (FragmentActivity)getActivity(); //wiring
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,6 +41,6 @@ public class HeadlinesFragment extends Fragment implements AdapterView.OnItemCli
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int postion, long row) {
         String itemClicked = adapterView.getItemAtPosition(postion).toString();
-        Toast.makeText(getContext(), itemClicked, Toast.LENGTH_SHORT).show();
+        onHeadlinesSelectedListener.onHeadlineSelected(itemClicked,postion); //clicking the switches
     }
 }
