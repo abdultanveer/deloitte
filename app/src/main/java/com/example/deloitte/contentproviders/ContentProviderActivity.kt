@@ -1,5 +1,6 @@
 package com.example.deloitte.contentproviders
 
+import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
@@ -11,7 +12,9 @@ import android.widget.TextView
 import com.example.deloitte.R
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.example.deloitte.database.FeedReaderContract.FeedEntry;
 
+//https://www.geeksforgeeks.org/content-providers-in-android-with-example/
 class ContentProviderActivity : BasePermissionAppCompatActivity() {
     lateinit var cpListView: ListView
     lateinit var dataCursor: Cursor
@@ -94,6 +97,36 @@ class ContentProviderActivity : BasePermissionAppCompatActivity() {
 
     companion object {
         var TAG = ContentProviderActivity::class.java.simpleName
+    }
+
+    fun handlerContentprovider(view: View) {
+        when(view.id){
+            R.id.btnPutContentprovider -> {putCprovider()}
+            R.id.btnGetContentprovider -> {getCprovider()}
+        }
+
+    }
+
+    private fun putCprovider() {
+        val tableNameUri: Uri = Uri.parse("content://entry.todo/entry")
+        var values = ContentValues()
+        values.put(FeedEntry.COLUMN_NAME_TITLE,"deloitte")
+        values.put(FeedEntry.COLUMN_NAME_SUBTITLE,"android")
+        contentResolver.insert(tableNameUri,values)
+
+    }
+
+    private fun getCprovider() {
+        val tableNameUri: Uri = Uri.parse("content://entry.todo")
+        var cursor = contentResolver.query(tableNameUri,null,null,null,null)
+        cursor?.moveToLast()
+        var titleIndex = cursor?.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_TITLE)
+        var title = titleIndex?.let { cursor?.getString(it) }
+
+        var subtitleIndex = cursor?.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_SUBTITLE)
+        var subtitle = subtitleIndex?.let { cursor?.getString(it) }
+
+        tvFirestore.text =  title + "\n"+ subtitle
     }
 
 

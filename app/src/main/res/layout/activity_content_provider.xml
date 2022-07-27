@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="61dp"
-        android:text="send firestore"
         android:onClick="firestoreHandler"
+        android:text="send firestore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cpListview" />
 
@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="7dp"
-        android:text="get firestore"
         android:onClick="firestoreHandler"
+        android:text="get firestore"
 
         app:layout_constraintStart_toEndOf="@+id/btnSend"
         app:layout_constraintTop_toTopOf="@+id/btnSend" />
@@ -48,4 +48,27 @@
         android:text="display data from firestore"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFsGet" />
+
+    <Button
+        android:id="@+id/btnPutContentprovider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="39dp"
+        android:onClick="handlerContentprovider"
+        android:text="put cp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFsResult" />
+
+    <Button
+        android:id="@+id/btnGetContentprovider"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="41dp"
+        android:onClick="handlerContentprovider"
+        android:text="get cp"
+        app:layout_constraintStart_toStartOf="@+id/tvFsResult"
+        app:layout_constraintTop_toBottomOf="@+id/tvFsResult" />
 </androidx.constraintlayout.widget.ConstraintLayout>
