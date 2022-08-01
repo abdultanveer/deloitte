@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -18,13 +19,18 @@
         android:theme="@style/Theme.Deloitte"
         tools:targetApi="31">
         <activity
-            android:name=".fragments.FragmentActivity"
+            android:name=".LocationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.FragmentActivity"
+            android:exported="true">
+
         </activity>
 
         <provider
@@ -35,9 +41,7 @@
 
         <activity
             android:name=".contentproviders.ContentProviderActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".roomdb.RoomActivity"
             android:exported="true" />
