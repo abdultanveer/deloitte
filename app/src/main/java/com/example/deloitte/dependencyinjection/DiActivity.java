@@ -29,6 +29,7 @@ public class DiActivity extends AppCompatActivity implements View.OnClickListene
         myComponent = DaggerMyComponent.builder()
                 .sharedPrefModule(new SharedPrefModule(this))
                 .build();
+        myComponent.inject(this);
 
     }
 
